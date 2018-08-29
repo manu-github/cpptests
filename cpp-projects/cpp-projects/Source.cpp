@@ -1,21 +1,38 @@
-//Simple-array challenge
+//gussing challenge
 
 #include<iostream>
-#include<string>
+#include<time.h>
 
 using namespace std;
 
 int main() {
 
-	int numbers[10];
-	for (int i = 0; i < 8; i++) {
-	
-		cin >> numbers[i];
+	srand(time(0));
+	int number = rand()%100;
+	int guess = -1;
+	int tryCount = 0;
+
+	while (guess != number && tryCount < 8) {
+
+		cout << "Please enter the guess: ";
+		cin >> guess;
+		if (guess < number) {
+			cout << "Too low" << endl;
+
+		}
+		else if (guess > number) {
+			cout << "Too high" << endl;
+
+		}
+		else {
+			break;
+		}
 	}
-
-	for (int i = 0; i < 8; i++) {
-
-		cout << numbers[i] << " ";
+	if(guess==number){
+		cout << "You guessed the number"<<endl;
+	}
+	else{
+		cout<<"Sorry,the number was : " << number<<endl;
 	}
 
 
