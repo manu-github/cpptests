@@ -1,40 +1,40 @@
-//gussing challenge
+//calculator
 
 #include<iostream>
-#include<time.h>
 
 using namespace std;
 
 int main() {
 
-	srand(time(0));
-	int number = rand()%100;
-	int guess = -1;
-	int tryCount = 0;
+	char op = 'c';
+	int x, y;
+	while (op != 'e') {
+		cout<<"What operation would you like to perform: add(+),substract(-),divide(/),multiply(*),[e]xit?"<<endl;
+		cin >> op;
+		cout << "Enter the numbers to be operated";
+		switch (op) {
+			case '+':
+				cin >> x >> y;
+				cout << x << " + " << y << " " << " = " << x + y<<endl;
+			
+			case '-':
+				cin >> x >> y;
+				cout << x << " - " << y << " " << " = " << x - y << endl;
+			case '*':
+				cin >> x >> y;
+				cout << x << " * " << y << " " << " = " << x * y << endl;
 
-	while (guess != number && tryCount < 8) {
-
-		cout << "Please enter the guess: ";
-		cin >> guess;
-		if (guess < number) {
-			cout << "Too low" << endl;
+			case '/':
+				cin >> x >> y;
+				cout << x << " / " << y << " " << " = " << static_cast<double>(x) / y << endl;
+			
+			case 'e':
+				break;
+			default:				
+				cout <<"Sorry,try again...!!!" << endl;
 
 		}
-		else if (guess > number) {
-			cout << "Too high" << endl;
-
-		}
-		else {
-			break;
-		}
 	}
-	if(guess==number){
-		cout << "You guessed the number"<<endl;
-	}
-	else{
-		cout<<"Sorry,the number was : " << number<<endl;
-	}
-
 
 	system("pause");
 	return 0;
